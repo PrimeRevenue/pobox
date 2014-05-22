@@ -7,7 +7,11 @@ module Pobox
   end
 
   def self.run_smtp_server
-    EM.run { EM.start_server '127.0.0.1', 25000, Pobox::SMTPServer, { } }
+    establish_connection
+    handler = -> (string) {
+      Pobox::Message.parse(string) { |x| x.save! }
+    }
+    EM.run { EM.start_server '127.0.0.1', 25000, Pobox::SMTPServer, { handler: handler } }
   end
 end
 
