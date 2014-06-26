@@ -4,4 +4,5 @@ gem "eventmachine"
 gem "mail"
 gem "activerecord"
 gem "sqlite3"
+gem "goliath"
 
