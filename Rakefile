@@ -15,7 +15,12 @@ end
 
 namespace :smtp do
   task :run do
-    Pobox.establish_connection
     Pobox.run_smtp_server
+  end
+end
+
+namespace :web do
+  task :run do
+    Pobox.run_web_server
   end
 end
