@@ -4,9 +4,11 @@ module Pobox
       case env['REQUEST_URI']
       when '/'
         handle_root
-      when /^\/([[:alnum:]]+)$/
+      when /^\/([A-Za-z0-9.@]+)$/
+        puts "handle mailbox", $1
         handle_mailbox(env, $1)
-      when /^\/([[:alnum:]]+)\/([0-9]+)$/
+      when /^\/([A-Za-z0-9.@]+)\/([0-9]+)$/
+        puts "handle message", $1
         handle_message(env, $1, $2)
       else
         [404, {}, "Not found"]
