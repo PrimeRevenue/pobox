@@ -1,9 +1,13 @@
 require 'bundler'
 Bundler.require
+require 'logger'
+require 'em-synchrony/activerecord'
 
 module Pobox
   def self.establish_connection
-    ActiveRecord::Base.establish_connection(adapter: :sqlite3, database: 'db/mail.db')
+    ActiveRecord::Base.logger = Logger.new($stderr)
+    ActiveRecord::Base.logger.level = Logger::DEBUG
+    ActiveRecord::Base.establish_connection(adapter: :sqlite3, database: File.join(File.dirname(__FILE__), '..', 'db', 'mail.db'))
   end
 
   def self.run_smtp_server

@@ -5,4 +5,5 @@ gem "mail"
 gem "activerecord"
 gem "sqlite3"
 gem "goliath"
-
+gem "em-synchrony"
+gem "byebug"
