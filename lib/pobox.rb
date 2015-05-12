@@ -3,7 +3,7 @@ Bundler.require
 
 module Pobox
   def self.establish_connection
-    ActiveRecord::Base.establish_connection(adapter: :sqlite3, database: '/Users/jps/tmp/test.db')
+    ActiveRecord::Base.establish_connection(adapter: :sqlite3, database: 'db/mail.db')
   end
 
   def self.run_smtp_server
@@ -28,6 +28,6 @@ end
 
 require 'active_record'
 
-require 'lib/pobox/message'
-require 'lib/pobox/smtp_server'
-require 'lib/pobox/web_server'
+require_relative 'pobox/message'
+require_relative 'pobox/smtp_server'
+require_relative 'pobox/web_server'

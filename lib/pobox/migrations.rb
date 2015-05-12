@@ -8,4 +8,4 @@ module Pobox
   end
 end
 
-require 'lib/pobox/migrations/create_messages'
+require_relative 'migrations/create_messages'

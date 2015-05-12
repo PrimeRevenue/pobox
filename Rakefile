@@ -1,13 +1,11 @@
 require 'bundler'
 Bundler.require
 
-$: << '.'
-
-require 'lib/pobox'
+require_relative 'lib/pobox'
 
 namespace :db do
   task :migrate do
-    require 'lib/pobox/migrations'
+    require_relative 'lib/pobox/migrations'
     Pobox.establish_connection
     Pobox::Migrations.run
   end
