@@ -6,6 +6,6 @@ gem "activerecord"
 gem "sqlite3"
 gem "grape"
 gem "grape-raketasks"
-gem "goliath"
+gem "goliath", require: false
 gem "em-synchrony"
 gem "byebug"

@@ -1,3 +1,5 @@
+require 'goliath'
+
 module Pobox
   class WebServer < Goliath::API
     def response(env)

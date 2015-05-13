@@ -34,4 +34,4 @@ require 'active_record'
 
 require_relative 'pobox/message'
 require_relative 'pobox/smtp_server'
-require_relative 'pobox/web_server'
+

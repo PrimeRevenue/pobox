@@ -22,6 +22,7 @@ end
 
 namespace :web do
   task :run => :environment do
+    require_relative 'lib/pobox/web_server'
     Pobox.run_web_server
   end
 end
