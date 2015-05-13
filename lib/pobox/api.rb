@@ -11,24 +11,24 @@ module Pobox
         Message.delete_all
       end
       
-      route_param :mailbox do
-        get do
-          Message.where(recipient: params['mailbox'])
-        end
-
-        delete do
-          Message.where(recipient: params['mailbox']).delete_all
-        end
-      end
-
-      resource 'messages' do
-        route_param :id do
+      route_param :mailbox, requirements: { mailbox: /.+@.+/ } do
+        resource 'messages' do
           get do
-            Message.find(params['id']).first
+            Message.where(recipient: params['mailbox'])
           end
 
           delete do
-            Message.find(params['id']).delete
+            Message.where(recipient: params['mailbox']).delete_all
+          end
+
+          route_param :id do
+            get do
+              Message.find(params['id']).first
+            end
+
+            delete do
+              Message.find(params['id']).delete
+            end
           end
         end
       end
