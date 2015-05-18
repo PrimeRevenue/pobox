@@ -15,7 +15,7 @@ namespace :db do
 end
 
 namespace :smtp do
-  task :run => :enviroment do
+  task :run => :environment do
     Pobox.run_smtp_server
   end
 end

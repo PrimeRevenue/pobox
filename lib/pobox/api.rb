@@ -23,7 +23,7 @@ module Pobox
 
           route_param :id do
             get do
-              Message.find(params['id']).first
+              Message.find(params['id'])
             end
 
             delete do
