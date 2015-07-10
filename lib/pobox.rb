@@ -15,7 +15,7 @@ module Pobox
     handler = -> (string) {
       Pobox::Message.parse(string) { |x| x.save! }
     }
-    EM.run { EM.start_server '127.0.0.1', 25000, Pobox::SMTPServer, { handler: handler } }
+    EM.run { EM.start_server '0.0.0.0', 25000, Pobox::SMTPServer, { handler: handler } }
   end
 
   def self.run_web_server
