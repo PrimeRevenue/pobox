@@ -27,6 +27,7 @@ module Pobox
 
     def receive_message
       @handler.call(@content)
+    rescue
       true
     end
   end
